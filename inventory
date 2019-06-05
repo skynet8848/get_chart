@@ -1,0 +1,200 @@
+[GTP_SP]
+movers     ansible_host=movers.englab.juniper.net    device_role=0
+shakers    ansible_host=shakers.englab.juniper.net    device_role=1
+adak       ansible_host=adak.englab.juniper.net
+attu       ansible_host=attu.englab.juniper.net
+[GVPN_Forge]
+pdt-thor    ansible_host=pdt-thor.englab.juniper.net    device_role=0
+pdt-hulk    ansible_host=pdt-hulk.englab.juniper.net    device_role=1
+f13-33      ansible_host=f13-33.englab.juniper.net
+f13-34      ansible_host=f13-34.englab.juniper.net
+f14-23      ansible_host=f14-23.englab.juniper.net
+f16-40      ansible_host=f16-40.englab.juniper.net
+f16-42      ansible_host=f16-42.englab.juniper.net
+[IPv6_VPN_Forge]
+f15-34              ansible_host=f15-34.englab.juniper.net    device_role=0
+f15-36              ansible_host=f15-36.englab.juniper.net    device_role=1
+pdt-forge-natt      ansible_host=pdt-forge-natt.englab.juniper.net
+[Porter3]
+smily-vsrx    ansible_host=10.208.177.19   
+honor-vsrx    ansible_host=10.208.177.15   
+smily-peer    ansible_host=smily-peer.englab.juniper.net
+[slt60]
+slt60-lemon   ansible_host=10.48.176.87    device_role=0 
+slt60-loquat  ansible_host=10.48.176.88    device_role=1
+slt60-j7      ansible_host=10.48.176.85    
+slt60-cactus  ansible_host=slt60-cactus.englab.juniper.net    device_role=0
+slt60-clove   ansible_host=slt60-clove.englab.juniper.net    device_role=1
+[T_DHCP]
+slt123-wyk    ansible_host=10.208.176.57    device_role=0
+slt123-pyke   ansible_host=10.208.176.58    device_role=1
+slt123-north  ansible_host=10.208.176.59    
+slt123-wall   ansible_host=10.208.176.60    
+zinnia        ansible_host=10.208.86.23     
+[E_DHCP]
+g07-27        ansible_host=10.208.177.112    
+g07-28        ansible_host=10.208.177.113    
+g07-29        ansible_host=10.208.177.114    device_role=0
+g07-31        ansible_host=10.208.177.115    device_role=1
+kvm-dhcp      ansible_host=10.208.176.49     
+[GTP_SCTP]
+slt106-kb   ansible_host=10.208.177.27     device_role=0
+slt106-ai   ansible_host=10.208.177.28     device_role=1
+slt106-tmac   ansible_host=10.208.177.29     
+[Small_DC_Forge]
+poetry       ansible_host=10.208.182.1     device_role=0
+prose        ansible_host=10.208.182.2     device_role=1
+peace        ansible_host=10.208.182.71
+paper        ansible_host=10.208.182.91
+[GTP_SCTP_Forge]
+pdt-honey       ansible_host=10.208.182.93     device_role=0
+pdt-waxberry    ansible_host=10.208.182.237     device_role=1
+[GIFW_GW]
+pdt-gw11        ansible_host=pdt-gw11.englab.juniper.net     device_role=0
+pdt-gw12        ansible_host=pdt-gw12.englab.juniper.net     device_role=1
+[GIFW_Summit]
+attacking       ansible_host=attacking.englab.juniper.net     device_role=0
+defending       ansible_host=defending.englab.juniper.net     device_role=1
+[NGFW_vSRX]
+slt104-orange   ansible_host=10.208.86.33     device_role=0
+slt104-grape    ansible_host=10.208.86.34     device_role=1
+[NGFW_Forge]
+pdt-pitaya   ansible_host=pdt-pitaya.englab.juniper.net     device_role=0
+pdt-mango    ansible_host=pdt-mango.englab.juniper.net     device_role=1
+pdt-peach    ansible_host=pdt-peach.englab.juniper.net
+[NGFW_Argon]
+forge-pdt-10    ansible_host=forge-pdt-10.spglab.juniper.net     device_role=0
+forge-pdt-11    ansible_host=forge-pdt-11.spglab.juniper.net     device_role=1
+[NGFW_GW]
+pdt-gw5    ansible_host=pdt-gw5.spglab.juniper.net     device_role=0
+pdt-gw6    ansible_host=pdt-gw6.spglab.juniper.net     device_role=1
+[Packet_Mode_vSRX]
+slt112-pe       ansible_host=10.208.183.3
+[Packet_Mode_Forge]
+botree          ansible_host=10.208.86.22
+[Packet_Mode_Trident]
+f17-44          ansible_host=10.208.178.91
+[Packet_Mode_Onager]
+slt112-onager          ansible_host=10.208.183.9
+[SWIFT_Onager]
+pdt-melon       ansible_host=10.208.182.225    device_role=0
+pdt-orange      ansible_host=10.208.182.226   device_role=1
+pdt-coconut     ansible_host=10.208.182.79
+pdt-longan      ansible_host=10.208.182.59
+[NGTP_Onager]
+pdt-berry       ansible_host=pdt-berry.englab.juniper.net     device_role=0
+pdt-lemon       ansible_host=pdt-lemon.englab.juniper.net     device_role=1
+pdt-casaba      ansible_host=pdt-casaba.englab.juniper.net
+[NGTP]
+slt102-python   ansible_host=10.208.86.39     device_role=0
+slt102-cobra    ansible_host=10.208.86.40     device_role=1 
+slt102-adder    ansible_host=10.208.86.42     
+slt102-mamba    ansible_host=10.208.181.18      
+[slt13]
+slt13-carrot   ansible_host=slt13-carrot.englab.juniper.net     device_role=0
+slt13-celery   ansible_host=10.208.87.45     device_role=1
+[slt15]
+slt15-medlar   ansible_host=10.208.177.41     device_role=0
+slt15-ginseng  ansible_host=10.208.177.45     device_role=1
+[slt17]
+slt17-balsam   ansible_host=10.208.178.41     device_role=0
+slt17-begonia  ansible_host=10.208.178.45     device_role=1
+slt17-j7       ansible_host=10.208.178.71
+[slt12]
+slt12-anemone   ansible_host=10.208.86.45     device_role=1
+slt12-jasmine   ansible_host=10.208.86.41     device_role=0
+[slt28]
+slt28-palm   ansible_host=10.208.181.41     device_role=0   
+slt28-pine   ansible_host=10.208.181.45     device_role=1 
+[slt11]
+slt11-rose      ansible_host=10.208.85.41     device_role=1
+slt11-orchid    ansible_host=10.208.85.45     device_role=0
+[Lsys_GW]
+greatwall-a     ansible_host=10.48.9.252     device_role=0
+greatwall-b     ansible_host=10.48.9.248     device_role=1
+[Lsys_Forge]
+forge-lsys1     ansible_host=forge-lsys1.englab.juniper.net     device_role=0
+forge-lsys2     ansible_host=forge-lsys2.englab.juniper.net     device_role=1
+[MiniPDT_US]
+nonibert   ansible_host=10.48.9.133     device_role=0
+lonibert   ansible_host=10.48.9.104     device_role=1
+qiguo-2    ansible_host=10.48.148.108   device_role=1
+qinguo-2   ansible_host=10.48.148.107   device_role=0
+zhaoguo-2  ansible_host=10.48.148.109
+weiguo-2   ansible_host=10.48.148.110
+hanguo-2   ansible_host=10.48.148.111
+chuguo-2   ansible_host=10.48.148.112
+gw-minipdt-quincy1   ansible_host=10.48.9.254     device_role=0
+gw-minipdt-quincy2   ansible_host=10.48.9.253     device_role=1
+pdt-xian-2       ansible_host=10.48.9.231     device_role=0
+pdt-xianyang-2   ansible_host=10.48.9.232     device_role=1
+pdt-weinan-2     ansible_host=10.48.9.233
+pdt-tongchuan-2  ansible_host=10.48.9.234     device_role=0
+pdt-yanan-2      ansible_host=10.48.9.235     device_role=1
+pdt-yulin-2      ansible_host=10.48.9.236
+fig              ansible_host=fig.englab.juniper.net     device_role=0
+yam              ansible_host=yam.englab.juniper.net     device_role=1
+[MiniPDT_CN]
+pdt-xian       ansible_host=10.208.133.151     device_role=0
+pdt-xianyang   ansible_host=10.208.133.153     device_role=1
+pdt-weinan     ansible_host=10.208.133.166
+pdt-tongchuan  ansible_host=10.208.133.167     device_role=0
+pdt-yanan      ansible_host=10.208.133.174     device_role=1
+pdt-yulin      ansible_host=10.208.133.175
+shanhai        ansible_host=10.208.177.48     device_role=0
+yanmen         ansible_host=10.208.177.50     device_role=1
+qiguo          ansible_host=qiguo.englab.juniper.net   device_role=1
+qinguo         ansible_host=qinguo.englab.juniper.net   device_role=0
+[SecGW_vSRX]
+slt113-cavaliers   ansible_host=slt113-cavaliers.englab.juniper.net     device_role=0
+slt113-raptors     ansible_host=slt113-raptors.englab.juniper.net     device_role=1
+slt111-morphia     ansible_host=slt111-morphia.englab.juniper.net     device_role=0
+slt111-opium       ansible_host=slt111-opium.englab.juniper.net     device_role=1
+[VPN_Concentrator_vSRX]
+slt103-cicada     ansible_host=slt103-cicada.englab.juniper.net     device_role=0
+slt103-cricket    ansible_host=slt103-cricket.englab.juniper.net     device_role=1
+slt103-j7         ansible_host=slt103-j7.englab.juniper.net
+[Service_Chain_vSRX]
+slt105-nongfu      ansible_host=slt105-nongfu.englab.juniper.net     device_role=0
+slt105-shanquan    ansible_host=slt105-shanquan.englab.juniper.net     device_role=1
+slt105-j7          ansible_host=slt105-j7.englab.juniper.net
+slt112-warriors    ansible_host=slt112-warriors.englab.juniper.net     device_role=0
+slt112-spurs       ansible_host=slt112-spurs.englab.juniper.net     device_role=1
+[Datacenter_GW]
+sunshine           ansible_host=sunshine.englab.juniper.net     device_role=0
+moonlight          ansible_host=moonlight.englab.juniper.net     device_role=1
+[Datacenter_Summit]
+guo                ansible_host=guo.englab.juniper.net     device_role=0
+wan                ansible_host=wan.englab.juniper.net     device_role=1
+[Lsys_Tenant]
+pdt-winter         ansible_host=pdt-winter.englab.juniper.net     device_role=0
+pdt-summer         ansible_host=pdt-summer.englab.juniper.net     device_role=1
+ibmdow-reg1        ansible_host=ibmdow-reg1.englab.juniper.net     device_role=0
+ibmdow-reg2        ansible_host=ibmdow-reg2.englab.juniper.net     device_role=1
+[Wire_Mode_Onager]
+pdt-lotus          ansible_host=pdt-lotus.englab.juniper.net     device_role=0
+pdt-reed           ansible_host=pdt-reed.englab.juniper.net     device_role=1
+[Wire_Mode_Trident]
+pdt-pepper         ansible_host=pdt-pepper.englab.juniper.net     device_role=0
+pdt-pumpkin        ansible_host=pdt-pumpkin.englab.juniper.net     device_role=1
+[L2NG_Onager]
+pdt-mars           ansible_host=pdt-mars.englab.juniper.net     
+pdt-mercury        ansible_host=pdt-mercury.englab.juniper.net
+pdt-earth          ansible_host=pdt-earth.englab.juniper.net     
+pdt-venus          ansible_host=pdt-venus.englab.juniper.net
+calla              ansible_host=calla.englab.juniper.net
+choko              ansible_host=choko.englab.juniper.net      
+[L2NG_Forge]
+pdt-jupiter        ansible_host=pdt-jupiter.englab.juniper.net     device_role=0
+pdt-saturn         ansible_host=pdt-saturn.englab.juniper.net      device_role=1
+[BFD_Forge]
+pdt-sparrow        ansible_host=pdt-sparrow.englab.juniper.net
+pdt-swallow        ansible_host=pdt-swallow.englab.juniper.net
+pdt-magpie         ansible_host=pdt-magpie.englab.juniper.net
+pdt-phoenix        ansible_host=pdt-phoenix.englab.juniper.net
+pdt-seagull        ansible_host=pdt-seagull.englab.juniper.net
+[Service_IPv6_3K]
+slt7-tulip         ansible_host=slt7-tulip.englab.juniper.net      device_role=0
+slt7-lilac         ansible_host=slt7-lilac.englab.juniper.net      device_role=1
+[all:vars]
+ansible_python_interpreter=/usr/local/bin/python
