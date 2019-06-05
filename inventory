@@ -30,7 +30,7 @@ slt123-wyk    ansible_host=10.208.176.57    device_role=0
 slt123-pyke   ansible_host=10.208.176.58    device_role=1
 slt123-north  ansible_host=10.208.176.59    
 slt123-wall   ansible_host=10.208.176.60    
-zinnia        ansible_host=10.208.86.23     
+zinnia        ansible_host=zinnia.englab.juniper.net     
 [E_DHCP]
 g07-27        ansible_host=10.208.177.112    
 g07-28        ansible_host=10.208.177.113    
