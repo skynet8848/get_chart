@@ -1,0 +1,155 @@
+---
+- name: Get Device Info
+  hosts: all
+  roles:
+    - Juniper.junos 
+  connection: local
+#  gather_facts: no
+
+  vars:
+    systime: "{{ ansible_date_time.time | replace(':', '-') }}"
+    timestamp: "{{ ansible_date_time.date }}_{{ systime }}"
+    report_file: "device-facts_{{ timestamp }}.csv"
+
+#  vars_prompt:
+#    - name: username
+#      prompt: Junos Username
+#      private: no
+#    - name: password
+#      prompt: Junos Password
+#      private: yes
+
+  tasks:
+    - name: get info using galaxy module
+#      juniper_junos_command:
+#        commands:
+#          - show system uptime
+#          - show version
+      juniper_junos_rpc:
+        rpcs:
+          - get-system-uptime-information
+          - get-software-information
+          - get-chassis-inventory
+        provider:
+          host: "{{ ansible_host }}"
+          port: 22
+          user: "regress"
+          passwd: "MaRtInI"
+#          user: "{{ username }}"
+#          passwd: "{{ password }}"
+      register: junos_result
+
+    - name: get device info
+      juniper_junos_command:
+        commands:
+          - show security monitoring
+          - show chassis cluster status
+          - show chassis fpc pic-status
+          - show system uptime
+        provider:
+          host: "{{ ansible_host }}"
+          port: 22
+          user: "regress"
+          passwd: "MaRtInI"
+      register: status_info
+
+    - name: get device facts
+      juniper_junos_facts:
+        provider:
+          host: "{{ ansible_host }}"
+          port: 22
+          user: "regress"
+          passwd: "MaRtInI"
+
+    - name: display uptimes (SA)
+      debug:
+        var: junos_result.results[0].parsed_output['system-uptime-information']['system-booted-time']
+      when: junos_result.results[0].parsed_output['system-uptime-information'] is defined
+
+    - name: display uptimes (HA)
+      debug:
+        var: junos_result.results[0].parsed_output['multi-routing-engine-results']['multi-routing-engine-item'][{{device_role}}]['system-uptime-information']['system-booted-time']
+      when: junos_result.results[0].parsed_output['multi-routing-engine-results'] is defined
+    
+    - name: display current times (SA)
+      debug:
+        var: junos_result.results[0].parsed_output['system-uptime-information']['current-time']
+      when: junos_result.results[0].parsed_output['system-uptime-information'] is defined
+
+    - name: display current times (HA)
+      debug:
+        var: junos_result.results[0].parsed_output['multi-routing-engine-results']['multi-routing-engine-item'][{{device_role}}]['system-uptime-information']['current-time']
+      when: junos_result.results[0].parsed_output['multi-routing-engine-results'] is defined
+
+    - name: display version (SA)
+      debug:
+        var: junos_result.results[1].parsed_output['software-information']['junos-version']
+      when: junos_result.results[1].parsed_output['software-information'] is defined
+
+    - name: display version (HA)
+      debug:
+        var: junos_result.results[1].parsed_output['multi-routing-engine-results']['multi-routing-engine-item'][{{device_role}}]['software-information']['junos-version']
+      when: junos_result.results[1].parsed_output['multi-routing-engine-results'] is defined
+
+    - name: display Version
+      debug:
+        var: junos.version
+      when: junos.version is defined    
+
+    - name: display Model (SA)
+      debug:
+        var: junos_result.results[2].parsed_output['chassis-inventory']['chassis']['description']
+      when: junos_result.results[2].parsed_output['chassis-inventory'] is defined
+
+    - name: display Model (HA)
+      debug:
+        var: junos_result.results[2].parsed_output['multi-routing-engine-results']['multi-routing-engine-item'][{{device_role}}]['chassis-inventory']['chassis']['description']
+      when: junos_result.results[2].parsed_output['multi-routing-engine-results'] is defined
+    
+    - name: display Session Info
+      debug:
+        var: status_info.results[0].stdout_lines
+    
+    - name: display HA Info
+      debug:
+        var: status_info.results[1].stdout_lines
+
+    - name: display FPC Info
+      debug:
+        var: status_info.results[2].stdout_lines
+    
+    - name: display Time Info
+      debug:
+        var: status_info.results[3].stdout_lines    
+    
+    - name: save device facts
+      template:
+        src: template/device-facts-csv.j2
+        dest: "facts/build/{{inventory_hostname}}.csv"
+    - name: copy column headers file
+      copy:
+        src: template/_device-facts-columns.txt
+        dest: "facts/build/"
+      run_once: yes
+      delegate_to: localhost
+
+    - name: assemble inventory report
+      assemble:
+        src: "facts/build"
+        dest: "facts/{{report_file}}"
+      run_once: yes
+      delegate_to: localhost
+#    - name: display uptimes
+#      debug:
+#        var: junos_result
+#        var: junos_result.results[0].parsed_output['system-uptime-information']['system-booted-time']
+#        var: junos_result.parsed_output['system-uptime-information']['uptime-information']['up-time']
+#        var: uptime['stdout_lines']
+#     - name: display uptimes (Ansible shortcut)
+#       debug:
+#         var: junos_result.stdout_lines
+#    - name: display version
+#      debug:
+#         var: junos_result.parsed_output['software-information']['junos-version']
+#         var: junos_result.results.['parsed_output']['software-information']['junos-version']
+#         var: junos_result.results[1].parsed_output['software-information']['junos-version']
