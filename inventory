@@ -28,7 +28,7 @@ slt60-clove   ansible_host=slt60-clove.englab.juniper.net    device_role=1
 [T_DHCP]
 slt123-wyk    ansible_host=10.208.176.57    device_role=0
 slt123-pyke   ansible_host=10.208.176.58    device_role=1
-slt123-north  ansible_host=10.208.176.59    
+slt123-north  ansible_host=slt123-north.englab.juniper.net    
 slt123-wall   ansible_host=slt123-wall.englab.juniper.net    
 zinnia        ansible_host=zinnia.englab.juniper.net     
 [E_DHCP]
