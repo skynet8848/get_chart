@@ -1,0 +1,32 @@
+---
+- name: Get Device Facts
+  hosts: slt60-lemon
+  roles:
+    - Juniper.junos 
+  connection: local
+  gather_facts: no
+
+  vars_prompt:
+    - name: username
+      prompt: Junos Username
+      private: no
+    - name: password
+      prompt: Junos Password
+      private: yes
+
+  tasks:
+    - name: Upgrade Junos OS
+      juniper_junos_software:
+        remote_package: "/var/tmp/junos-install-srx5000-x86-64-19.1R1.tgz"
+        no_copy: true
+        validate: true
+        provider:
+          host: "{{ ansible_host }}"
+          port: 22
+          user: "{{ username }}"
+          passwd: "{{ password }}" 
+      register: response
+    - name: Print the response
+      debug:
+        var: response
+
